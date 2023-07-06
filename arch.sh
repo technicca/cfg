@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo rmmod pcspkr
+sudo rmmod snd_pcsp
+
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
@@ -24,13 +27,19 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-typ
 gsettings set org.gnome.desktop.screensaver timeout 0
 gsettings set org.gnome.desktop.session idle-delay 0
 
+# Start install
+sudo pacman -Syyu
+sudo pacman -S reflector
+reflector
+sudo systemctl enable --now reflector.timer
+sudo pacman -S yay
 
 # Configure yay options
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" $PKGNAME
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search
+yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh
 yay --noconfirm -S brainworkshop-git nvm kitty
 
 mkdir ~/.config/Code/User
