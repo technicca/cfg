@@ -3,6 +3,28 @@
 sudo rmmod pcspkr
 sudo rmmod snd_pcsp
 
+# Start install
+sudo pacman -Sy archlinux-keyring
+sudo pacman -Syyu
+sudo pacman -S git base-level reflector
+reflector
+sudo systemctl enable --now reflector.timer
+
+# Install yay
+mkdir code && cd code
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd ../../
+
+# Configure yay options
+echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" $PKGNAME
+yay --save --answerclean None --answerdiff None
+yay --save --nocleanmenu --nodiffmenu --noconfirm
+# Install with yay
+yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-text-editor
+yay --noconfirm -S brainworkshop-git nvm kitty
+
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
 
@@ -11,8 +33,8 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 
 # Set general appearance to dark
 gsettings set org.gnome.desktop.interface enable-animations true
-gsettings set org.gnome.desktop.interface cursor-theme 'Qogir'
-gsettings set org.gnome.desktop.interface icon-theme 'Qogir'
+gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface show-battery-percentage false
 
 # Disable screen dimming
@@ -26,21 +48,6 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'no
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
 gsettings set org.gnome.desktop.screensaver timeout 0
 gsettings set org.gnome.desktop.session idle-delay 0
-
-# Start install
-sudo pacman -Syyu
-sudo pacman -S reflector
-reflector
-sudo systemctl enable --now reflector.timer
-sudo pacman -S yay
-
-# Configure yay options
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" $PKGNAME
-yay --save --answerclean None --answerdiff None
-yay --save --nocleanmenu --nodiffmenu --noconfirm
-# Install with yay
-yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh
-yay --noconfirm -S brainworkshop-git nvm kitty
 
 mkdir ~/.config/Code/User
 cp settings.json ~/.config/User
@@ -60,7 +67,7 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/or
 
 
 # Download the "Dash to Dock" extension
-mkdir code
+
 cd code
 git clone https://github.com/micheleg/dash-to-dock.git
 
@@ -91,7 +98,6 @@ echo "Lines added successfully to /home/$USER/.config/kitty/kitty.conf"
 
 git config --global user.name "technicca"
 echo export RADV_PERFTEST=aco | sudo tee -a /etc/environment
-eos-welcome --disable
 chsh -s /bin/zsh
 
 cd /home/$USER
@@ -100,4 +106,3 @@ source .venv/bin/activate
 pip install --upgrade pip
 
 echo "done"
-
