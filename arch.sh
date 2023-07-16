@@ -4,6 +4,8 @@ sudo rmmod pcspkr
 sudo rmmod snd_pcsp
 
 # Start install
+sudo echo "[multilib]
+Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
 sudo pacman -Sy archlinux-keyring
 sudo pacman -Syyu
 sudo pacman -S git base-level reflector
@@ -22,7 +24,7 @@ echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-text-editor
+yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-text-editor linux-zen
 yay --noconfirm -S brainworkshop-git nvm kitty
 
 # Set the default GNOME theme to Adwaita Dark
