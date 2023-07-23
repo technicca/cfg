@@ -6,9 +6,9 @@ sudo rmmod snd_pcsp
 # Start install
 sudo echo "[multilib]
 Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
-sudo pacman -Sy archlinux-keyring
-sudo pacman -Syyu
-sudo pacman -S git base-level reflector
+sudo pacman -Sy archlinux-keyring --noconfirm
+sudo pacman -Syyu --noconfirm
+sudo pacman -S base-devel reflector git --noconfirm
 reflector
 sudo systemctl enable --now reflector.timer
 
@@ -16,7 +16,7 @@ sudo systemctl enable --now reflector.timer
 mkdir code && cd code
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 cd ../../
 
 # Configure yay options
@@ -24,8 +24,7 @@ echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay --noconfirm -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-text-editor linux-zen
-yay --noconfirm -S brainworkshop-git nvm kitty
+yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor linux-zen brainworkshop-git nvm kitty upd72020x-fw linux-firmware-qlogic ttf-jetbrains-mono-nerd nm-connection-editor dnsmasq --noconfirm
 
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -36,7 +35,7 @@ gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,m
 # Set general appearance to dark
 gsettings set org.gnome.desktop.interface enable-animations true
 gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface show-battery-percentage false
 
 # Disable screen dimming
@@ -50,6 +49,9 @@ gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'no
 gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
 gsettings set org.gnome.desktop.screensaver timeout 0
 gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.privacy disable-camera true
+gsettings set org.gnome.desktop.privacy disable-microphone true
+gsettings set org.gnome.desktop.screensaver lock-enabled false
 
 mkdir ~/.config/Code/User
 cp settings.json ~/.config/User
@@ -86,7 +88,7 @@ gnome-extensions enable dash-to-dock@micxgx.gmail.com
 cd ../../
 
 # Kitty config
-
+kitty
 echo "
 " >> "/home/$USER/.config/kitty/kitty.conf"
 echo "font_family monospace" >> "/home/$USER/.config/kitty/kitty.conf"
