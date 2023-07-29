@@ -3,6 +3,13 @@
 sudo rmmod pcspkr
 sudo rmmod snd_pcsp
 
+# Security
+sudo echo "ALL: ALL" | sudo tee -a /etc/hosts.deny
+sudo echo "
+PasswordAuthentication no
+MaxAuthTries = 3
+" | sudo tee -a /etc/ssh/ssh_config
+
 # Start install
 sudo echo "[multilib]
 Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
@@ -17,6 +24,12 @@ mkdir code && cd code
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm
+cd ../
+
+# Install Paru
+git clone https://aur.archlinux.org/paru.git
+cd paru
+makepkg -si
 cd ../../
 
 # Configure yay options
@@ -24,7 +37,7 @@ echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor linux-zen brainworkshop-git nvm kitty upd72020x-fw linux-firmware-qlogic ttf-jetbrains-mono-nerd nm-connection-editor dnsmasq --noconfirm
+yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git nvm kitty upd72020x-fw linux-firmware-qlogic ttf-jetbrains-mono-nerd nm-connection-editor dnsmasq rust nvim --noconfirm
 
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -52,9 +65,6 @@ gsettings set org.gnome.desktop.session idle-delay 0
 gsettings set org.gnome.desktop.privacy disable-camera true
 gsettings set org.gnome.desktop.privacy disable-microphone true
 gsettings set org.gnome.desktop.screensaver lock-enabled false
-
-mkdir ~/.config/Code/User
-cp settings.json ~/.config/User
 
 curl -fsSL https://get.pnpm.io/install.sh | sh -
 source /home/$USER/.zshrc
@@ -101,12 +111,18 @@ echo "Lines added successfully to /home/$USER/.config/kitty/kitty.conf"
 # Other
 
 git config --global user.name "technicca"
+git config --global init.defaultBranch main
 echo export RADV_PERFTEST=aco | sudo tee -a /etc/environment
-chsh -s /bin/zsh
 
 cd /home/$USER
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
 
+cd code
+git clone https://github.com/technicca/dotfiles
+sudo cp -a ~/code/dotfiles/home/. ~/
+cd ../
+
+chsh -s /bin/zsh
 echo "done"
