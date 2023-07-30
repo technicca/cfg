@@ -39,7 +39,7 @@ echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git nvm kitty upd72020x-fw linux-firmware-qlogic ttf-jetbrains-mono-nerd wget nm-connection-editor dnsmasq rust nvim --noconfirm
+yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git nvm kitty upd72020x-fw linux-firmware-qlogic ttf-jetbrains-mono-nerd ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust nvim --noconfirm
 
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
@@ -125,12 +125,6 @@ cd code
 git clone https://github.com/technicca/dotfiles
 sudo cp -a ~/code/dotfiles/home/. ~/
 cd ../
-
-sudo wget https://mirror.truenetwork.ru/clamav/main.cvd -O /var/lib/clamav/main.cvd 
-sudo wget https://mirror.truenetwork.ru/clamav/daily.cvd -O /var/lib/clamav/daily.cvd 
-sudo wget https://mirror.truenetwork.ru/clamav/bytecode.cvd -O /var/lib/clamav/bytecode.cvd
-sudo systemctl start clamav-daemon.service
-sudo systemctl enable clamav-daemon.service
 
 chsh -s /bin/zsh
 echo "done"
