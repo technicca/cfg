@@ -36,7 +36,12 @@ selection:
 
 # writing thing (cursor) 
 cursor:
-  style: 'Block'
+  style:
+    shape: Underline
+    blinking: Always
+  blink_interval: 600
+  unfocused_hollow: true
+  thickness: 0.2
 
 # def Shell
 shell:

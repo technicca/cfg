@@ -2,6 +2,7 @@
 ## Aliases
 ##
 
+alias y='yay --noconfirm'
 alias ff='foofetch'
 alias gall='echo -n "Commit msg: ";read msg;ga .;gc -m "$msg";gp'
 alias gauto='ga .;gc -m "update";gp'

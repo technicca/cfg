@@ -3,6 +3,27 @@
 sudo rmmod pcspkr
 sudo rmmod snd_pcsp
 
+# Gnome appearance
+gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
+gsettings set org.gnome.settings-daemon.plugins.power idle-dim false # Disable screen dimming
+gsettings set org.gnome.settings-daemon.plugins.power idle-brightness 0 # Screen blank = never
+
+# General appearance = dark
+gsettings set org.gnome.desktop.interface enable-animations true
+gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita-dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
+gsettings set org.gnome.desktop.interface show-battery-percentage false
+
+# Disable automatic suspend
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
+gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
+gsettings set org.gnome.desktop.screensaver timeout 0
+gsettings set org.gnome.desktop.session idle-delay 0
+gsettings set org.gnome.desktop.privacy disable-camera true
+gsettings set org.gnome.desktop.privacy disable-microphone true
+gsettings set org.gnome.desktop.screensaver lock-enabled false
+
 # Security
 sudo echo "ALL: ALL" | sudo tee -a /etc/hosts.deny
 sudo echo "
@@ -11,6 +32,7 @@ MaxAuthTries = 3
 " | sudo tee -a /etc/ssh/ssh_config
 sudo echo "sshd: ALL: DENY
 " | sudo tee -a /etc/hosts.allow
+sudo systemctl disable sshd.service
 
 # Start install
 sudo echo "[multilib]
@@ -29,47 +51,17 @@ makepkg -si --noconfirm
 cd ../
 
 # Configure yay options
-echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" $PKGNAME
-yay --save --answerclean None --answerdiff None
-yay --save --nocleanmenu --nodiffmenu --noconfirm
+yay --save --nocleanmenu --nodiffmenu --noeditmenu --cleanafter --removemake --noprovides --answerdiff None --answerclean None
 # Install with yay
-yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim --noconfirm
+yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim htop --noconfirm
 
-# Set the default GNOME theme to Adwaita Dark
-gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
+# Fonts
+gsettings set org.gnome.desktop.interface font-name 'Inter Light 11'
+gsettings set org.gnome.desktop.interface document-font-name 'Inter Regular 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Inter Regular 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka Term Regular 11'
 
-# Enable minimize and maximize buttons
-gsettings set org.gnome.desktop.wm.preferences button-layout 'appmenu:minimize,maximize,close'
-
-# Set general appearance to dark
-gsettings set org.gnome.desktop.interface enable-animations true
-gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita-dark'
-gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
-gsettings set org.gnome.desktop.interface show-battery-percentage false
-
-# Disable screen dimming
-gsettings set org.gnome.settings-daemon.plugins.power idle-dim false
-
-# Set screen blank to never
-gsettings set org.gnome.settings-daemon.plugins.power idle-brightness 0
-
-# Disable automatic suspend
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-ac-type 'nothing'
-gsettings set org.gnome.settings-daemon.plugins.power sleep-inactive-battery-type 'nothing'
-gsettings set org.gnome.desktop.screensaver timeout 0
-gsettings set org.gnome.desktop.session idle-delay 0
-gsettings set org.gnome.desktop.privacy disable-camera true
-gsettings set org.gnome.desktop.privacy disable-microphone true
-gsettings set org.gnome.desktop.screensaver lock-enabled false
-
-curl -fsSL https://get.pnpm.io/install.sh | sh -
-source /home/$USER/.zshrc
-source /home/$USER/.bashrc
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.zshrc
-echo 'source /usr/share/nvm/init-nvm.sh' >> ~/.bashrc
-nvm install node
-
-# Set Super+T shortcut to run term
+# Set Super+T shortcut to run Alacritty
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ name 'Launch Alacritty'
 gsettings set org.gnome.settings-daemon.plugins.media-keys.custom-keybinding:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/ command 'alacritty'
@@ -94,7 +86,6 @@ gnome-extensions enable dash-to-dock@micxgx.gmail.com
 cd ../../
 
 # Kitty config
-kitty
 echo "
 " >> "/home/$USER/.config/kitty/kitty.conf"
 echo "font_family monospace" >> "/home/$USER/.config/kitty/kitty.conf"
