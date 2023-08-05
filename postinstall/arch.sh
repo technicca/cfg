@@ -28,12 +28,6 @@ cd yay
 makepkg -si --noconfirm
 cd ../
 
-# Install Paru
-git clone https://aur.archlinux.org/paru.git
-cd paru
-makepkg -si
-cd ../../
-
 # Configure yay options
 echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "--noconfirm" $PKGNAME
 yay --save --answerclean None --answerdiff None
