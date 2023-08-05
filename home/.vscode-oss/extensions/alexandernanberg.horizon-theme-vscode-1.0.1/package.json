@@ -1,0 +1,86 @@
+{
+	"name": "horizon-theme-vscode",
+	"version": "1.0.1",
+	"author": "Alexander Nanberg",
+	"displayName": "Horizon Theme",
+	"description": "A beautifully warm dual theme for Visual Studio Code",
+	"publisher": "alexandernanberg",
+	"license": "MIT",
+	"icon": "logo.png",
+	"scripts": {
+		"build": "npm run build:dark && npm run build:bright && prettier . --write",
+		"build:dark": "node src/dark/build",
+		"build:bright": "node src/bright/build"
+	},
+	"engines": {
+		"vscode": "^1.26.0"
+	},
+	"galleryBanner": {
+		"color": "#FCEAE5",
+		"theme": "light"
+	},
+	"categories": [
+		"Themes"
+	],
+	"keywords": [
+		"theme",
+		"dark",
+		"horizon",
+		"warm"
+	],
+	"contributes": {
+		"themes": [
+			{
+				"label": "Horizon",
+				"uiTheme": "vs-dark",
+				"path": "./themes/horizon.json"
+			},
+			{
+				"label": "Horizon Italic",
+				"uiTheme": "vs-dark",
+				"path": "./themes/horizon-italic.json"
+			},
+			{
+				"label": "Horizon Bold",
+				"uiTheme": "vs-dark",
+				"path": "./themes/horizon-bold.json"
+			},
+			{
+				"label": "Horizon Bright",
+				"uiTheme": "vs",
+				"path": "./themes/horizon-bright.json"
+			},
+			{
+				"label": "Horizon Bright Italic",
+				"uiTheme": "vs",
+				"path": "./themes/horizon-bright-italic.json"
+			},
+			{
+				"label": "Horizon Bright Bold",
+				"uiTheme": "vs",
+				"path": "./themes/horizon-bright-bold.json"
+			}
+		]
+	},
+	"devDependencies": {
+		"mustache": "^3.0.1",
+		"prettier": "^2.5.0"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/alexandernanberg/horizon-theme-vscode"
+	},
+	"bugs": {
+		"url": "https://github.com/alexandernanberg/horizon-theme-vscode/issues"
+	},
+	"__metadata": {
+		"id": "7661e18a-ca94-4e7d-be7c-3b83ff7250c0",
+		"publisherId": "615c0647-75a4-418c-8165-596ae2168743",
+		"publisherDisplayName": "Alexander Nanberg",
+		"targetPlatform": "undefined",
+		"updated": false,
+		"isPreReleaseVersion": false,
+		"installedTimestamp": 1691274051580,
+		"preRelease": false
+	}
+}

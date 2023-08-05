@@ -1,11 +1,10 @@
 {
   "editor.fontLigatures": true,
-  "editor.fontFamily": "JetBrains Mono",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
   "editor.fontSize": 13.5,
   "editor.smoothScrolling": true,
   "editor.fontVariations": true,
   "editor.fontWeight": "normal",
-  "workbench.iconTheme": "eq-material-theme-icons-darker",
   "explorer.confirmDelete": false,
   "workbench.startupEditor": "none",
   "editor.inlineSuggest.enabled": true,
@@ -37,5 +36,8 @@
     "markdown": false,
     "scminput": false
   },
-  "workbench.colorTheme": "Horizon"
+  "tabnine.experimentalAutoImports": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.colorTheme": "Horizon Extended",
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons"
 }
