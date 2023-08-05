@@ -1,7 +1,7 @@
 #  Font configuration
 font:
   normal:
-    family: JetBrainsMonoNL Nerd Font
+    family: JetBrainsMono Nerd Font
     style: Bold
 
   bold:

@@ -2,11 +2,10 @@
 ## Aliases
 ##
 
+alias ff='foofetch'
 alias gall='echo -n "Commit msg: ";read msg;ga .;gc -m "$msg";gp'
 alias gauto='ga .;gc -m "update";gp'
-alias ct='make all; make install'
 alias run='pnpm run'
-alias ff='foofetch'
 alias c="clear"
 alias q="exit"
 alias cleanram="sudo sh -c 'sync; echo 3 > /proc/sys/vm/drop_caches'"
