@@ -18,7 +18,7 @@ Include = /etc/pacman.d/mirrorlist" | sudo tee -a /etc/pacman.conf
 sudo pacman -Sy archlinux-keyring --noconfirm
 sudo pacman -Syyu --noconfirm
 sudo pacman -S base-devel reflector git --noconfirm
-reflector
+sudo reflector --latest 10 --sort rate --save /etc/pacman.d/mirrorlist
 sudo systemctl enable --now reflector.timer
 
 # Install yay
