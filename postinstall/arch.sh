@@ -33,7 +33,7 @@ echo y | LANG=C yay --noprovides --answerdiff None --answerclean None --mflags "
 yay --save --answerclean None --answerdiff None
 yay --save --nocleanmenu --nodiffmenu --noconfirm
 # Install with yay
-yay -S python git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim --noconfirm
+yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim --noconfirm
 
 # Set the default GNOME theme to Adwaita Dark
 gsettings set org.gnome.desktop.interface gtk-theme 'Adwaita-dark'
