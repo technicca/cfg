@@ -2,6 +2,8 @@
 ## Aliases
 ##
 
+alias py='$PWD/.venv/bin/pip'
+alias px='$PWD/.venv/bin/python'
 alias y='yay --noconfirm'
 alias ff='foofetch'
 alias gall='echo -n "Commit msg: ";read msg;ga .;gc -m "$msg";gp'
