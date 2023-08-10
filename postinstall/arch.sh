@@ -99,6 +99,7 @@ echo "Lines added successfully to /home/$USER/.config/kitty/kitty.conf"
 
 git config --global user.name "technicca"
 git config --global init.defaultBranch main
+git config --global --add --bool push.autoSetupRemote true
 echo export RADV_PERFTEST=aco | sudo tee -a /etc/environment
 
 cd /home/$USER
@@ -110,6 +111,21 @@ cd code
 git clone https://github.com/technicca/dotfiles
 sudo cp -a ~/code/dotfiles/home/. ~/
 cd ../
+
+echo "Do you want to set your GitHub email? (Y/N)"
+read choice
+
+if [ "$choice" == "Y" ] || [ "$choice" == "y" ]; then
+    echo "Enter your email:"
+    read email
+    
+    # Set the git config
+    git config --global user.email "$email"
+    
+    echo "GitHub email set successfully!"
+else
+    echo "GitHub email not set."
+fi
 
 chsh -s /bin/zsh
 echo "done"
