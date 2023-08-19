@@ -1,9 +1,10 @@
 ##
 ## Aliases
 ##
-
-alias py='$PWD/.venv/bin/pip'
-alias px='$PWD/.venv/bin/python'
+alias cd='z'
+alias vpn='sshuttle --dns -r root@194.58.33.215 -x 194.58.33.215 0.0.0.0/0'
+alias pi='$PWD/.venv/bin/pip'
+alias py='$PWD/.venv/bin/python'
 alias y='yay --noconfirm'
 alias ff='foofetch'
 alias gall='echo -n "Commit msg: ";read msg;ga .;gc -m "$msg";gp'
@@ -16,7 +17,6 @@ alias trim_all="sudo fstrim -va"
 alias mkgrub='sudo grub-mkconfig -o /boot/grub/grub.cfg'
 alias mtar='tar -zcvf' # mtar <archive_compress>
 alias utar='tar -zxvf' # utar <archive_decompress> <file_list>
-alias z='zip -r' # z <archive_compress> <file_list>
 alias uz='unzip' # uz <archive_decompress> -d <dir>
 alias sr='source ~/.config/zsh/env.zsh'
 alias ..="cd .."

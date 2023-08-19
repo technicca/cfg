@@ -53,7 +53,7 @@ cd ../
 # Configure yay options
 yay --save --nocleanmenu --nodiffmenu --noeditmenu --cleanafter --removemake --noprovides --answerdiff None --answerclean None
 # Install with yay
-yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim htop --noconfirm
+yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim htop zoxide --noconfirm
 
 # Fonts
 gsettings set org.gnome.desktop.interface font-name 'Inter Light 11'
@@ -113,14 +113,14 @@ sudo cp -a ~/code/dotfiles/home/. ~/
 cd ../
 
 echo "Do you want to set your GitHub email? (Y/N)"
-read choice
+read git_choice
 
-if [ "$choice" == "Y" ] || [ "$choice" == "y" ]; then
+if [ "$git_choice" == "Y" ] || [ "$git_choice" == "y" ]; then
     echo "Enter your email:"
-    read email
+    read git_email
     
     # Set the git config
-    git config --global user.email "$email"
+    git config --global user.email "$git_email"
     
     echo "GitHub email set successfully!"
 else

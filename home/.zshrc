@@ -13,4 +13,4 @@ prompt
 EOF
 
 # vim:ft=zsh:nowrap
-
+eval "$(zoxide init zsh)"
