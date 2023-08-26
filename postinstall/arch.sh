@@ -11,7 +11,6 @@ gsettings set org.gnome.settings-daemon.plugins.power idle-brightness 0 # Screen
 
 # General appearance = dark
 gsettings set org.gnome.desktop.interface enable-animations true
-gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita-dark'
 gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
 gsettings set org.gnome.desktop.interface show-battery-percentage false
 
@@ -53,13 +52,14 @@ cd ../
 # Configure yay options
 yay --save --nocleanmenu --nodiffmenu --noeditmenu --cleanafter --removemake --noprovides --answerdiff None --answerclean None
 # Install with yay
-yay -S python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim htop zoxide --noconfirm
+yay -S --noconfirm python xdg-utils git github-cli zsh python-pipx alacritty spotify-launcher vulkan-radeon vulkan-icd-loader code python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd code-features code-marketplace ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust fnm nvim htop zoxide aur/bibata-cursor-theme-bin
 
 # Fonts
 gsettings set org.gnome.desktop.interface font-name 'Inter Light 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Inter Regular 11'
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Inter Regular 11'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Iosevka Term Regular 11'
+gsettings set org.gnome.desktop.interface cursor-theme 'Bibata-Modern-Ice'
 
 # Set Super+T shortcut to run Alacritty
 gsettings set org.gnome.settings-daemon.plugins.media-keys custom-keybindings "['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/']"
