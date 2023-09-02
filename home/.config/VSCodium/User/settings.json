@@ -1,0 +1,53 @@
+{
+  "editor.fontLigatures": true,
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 13.5,
+  "editor.smoothScrolling": true,
+  "editor.fontVariations": true,
+  "editor.fontWeight": "normal",
+  "explorer.confirmDelete": false,
+  "workbench.startupEditor": "none",
+  "editor.inlineSuggest.enabled": true,
+  "tailwindCSS.emmetCompletions": true,
+
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "terminal.integrated.fontFamily": "JetBrains Mono",
+  "editor.wordWrap": "on",
+  "editor.unicodeHighlight.nonBasicASCII": false,
+  "editor.unicodeHighlight.invisibleCharacters": false,
+  "explorer.confirmDragAndDrop": false,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript"],
+  "terminal.external.linuxExec": "alacritty",
+  "files.watcherExclude": {
+    "**/.bloop": true,
+    "**/.metals": true,
+    "**/.ammonite": true
+  },
+  "[python]": {
+    "editor.formatOnType": true
+  },
+  "editor.unicodeHighlight.ambiguousCharacters": false,
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": false,
+    "scminput": false
+  },
+  "tabnine.experimentalAutoImports": true,
+  "workbench.productIconTheme": "fluent-icons",
+  "workbench.colorTheme": "Horizon Extended",
+  "git.openRepositoryInParentFolders": "never",
+  "C_Cpp.default.includePath": [
+    "/usr/include/**",
+    "${workspaceFolder}/**",
+    "/usr/include/"
+  ],
+  "security.workspace.trust.untrustedFiles": "open",
+  "workbench.iconTheme": "Monokai Pro (Filter Spectrum) Icons",
+  "[cpp]": {
+    "editor.defaultFormatter": "ms-vscode.cpptools"
+  }
+}
