@@ -38,7 +38,7 @@ cd ../
 # Configure yay options
 yay --save --nocleanmenu --nodiffmenu --noeditmenu --cleanafter --removemake --noprovides --answerdiff None --answerclean None
 # Install with yay
-yay -S --noconfirm python xdg-utils git github-cli zsh python-pipx vulkan-radeon vulkan-icd-loader python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust mold fnm neovim htop zoxide aur/bibata-cursor-theme-bin reflector noto-fonts-cjk kitty gnome-shell-extension-dash-to-dock vscodium-bin vscodium-bin-marketplace
+yay -S --noconfirm python xdg-utils git github-cli zsh python-pipx vulkan-radeon vulkan-icd-loader python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust mold fnm neovim htop zoxide aur/bibata-cursor-theme-bin reflector noto-fonts-cjk kitty gnome-shell-extension-dash-to-dock vscodium-bin vscodium-bin-marketplace xclip
 
 # Fonts, cursor and themes
 gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
@@ -77,11 +77,14 @@ cd /home/$USER
 python3 -m venv .venv
 source .venv/bin/activate
 pip install --upgrade pip
+fnm install 20
 
 cd code
 git clone https://github.com/technicca/dotfiles
 sudo cp -a ~/code/dotfiles/home/. ~/
 cd ../
+
+chsh -s usr/bin/zsh # change shell to zsh
 
 echo "Do you want to set your GitHub email? (Y/N)"
 read git_choice
@@ -98,6 +101,14 @@ else
     echo "GitHub email not set."
 fi
 
-chsh -s usr/bin/zsh
+echo "Do you want to set up NVchad? (Y/N)"
+read nvim_choice
+if [ "$nvim_choice" == "Y" ] || [ "nvim_choice" == "y" ]; then
+    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
+else
+    echo "NVchad no installed."
+fi
+
 echo "done"
+
 echo "Running security scripts:"
