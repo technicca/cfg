@@ -38,7 +38,11 @@ cd ../
 # Configure yay options
 yay --save --nocleanmenu --nodiffmenu --noeditmenu --cleanafter --removemake --noprovides --answerdiff None --answerclean None
 # Install with yay
-yay -S --noconfirm python xdg-utils git github-cli zsh python-pipx vulkan-radeon vulkan-icd-loader python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust mold fnm neovim htop zoxide aur/bibata-cursor-theme-bin reflector noto-fonts-cjk kitty gnome-shell-extension-dash-to-dock vscodium-bin vscodium-bin-marketplace xclip
+yay -S --noconfirm python xdg-utils git github-cli zsh python-pipx vulkan-radeon vulkan-icd-loader python-pip yarn sassc inter-font zsh-autosuggestions zsh-syntax-highlighting zsh-history-substring-search gh gnome-themes-extra gnome-tweaks gnome-text-editor brainworkshop-git upd72020x-fw linux-firmware-qlogic starship ttf-jetbrains-mono-nerd ttc-iosevka intel-ucode wget nm-connection-editor dnsmasq rust mold fnm neovim htop zoxide aur/bibata-cursor-theme-bin reflector noto-fonts-cjk kitty gnome-shell-extension-dash-to-dock vscodium-bin vscodium-bin-marketplace xclip fd obsidian sshuttle qbittorrent 
+# c++ libraries
+yay -S --noconfirm eigen imgui cmake clang 
+# Other programming stuff
+yay -S --noconfirm docker mongodb-bin docker-compose tk redis 
 
 # Fonts, cursor and themes
 gsettings set org.gnome.desktop.interface icon-theme 'Adwaita'
