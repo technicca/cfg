@@ -1,12 +1,14 @@
 ##
 ## Aliases
 ##
-alias pvenv='python3 -m venv .venv && source .venv/bin/activate'
+alias pyenv='python3 -m venv .venv && source .venv/bin/activate && pi install -r requirements.txt'
 alias code='vscodium'
 alias server='ssh root@194.58.33.215'
 alias vpn='sshuttle --dns -r root@194.58.33.215 -x 194.58.33.215 0.0.0.0/0'
 alias pi='$PWD/.venv/bin/pip'
+alias pip='$PWD/.venv/bin/pip'
 alias py='$PWD/.venv/bin/python'
+alias python='$PWD/.venv/bin/python'
 alias y='yay --noconfirm'
 alias ff='foofetch'
 alias gall='echo -n "Commit msg: ";read msg;ga .;gc -m "$msg";gp'
