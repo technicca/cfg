@@ -1,7 +1,7 @@
 local plugins = {
   {
     "rcarriga/nvim-dap-ui",
-    dependencies = "mfussenegger/nvim-dap",
+    dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
     config = function()
       local dap = require("dap")
       local dapui = require("dapui")
@@ -35,6 +35,10 @@ local plugins = {
       require("dap-python").setup(path)
       require("core.utils").load_mappings("dap_python")
     end,
+  },
+  {
+    "Exafunction/codeium.vim",
+    event = 'BufEnter'
   },
   {
     "nvimtools/none-ls.nvim",
