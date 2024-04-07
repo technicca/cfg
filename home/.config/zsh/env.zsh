@@ -1,6 +1,26 @@
 ##
 ## PATH & ENV Var
 ##
+. /opt/asdf-vm/asdf.sh
+#pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
+# flutter
+export ANDROID_SDK_ROOT='/opt/android-sdk'
+export PATH=$PATH:$ANDROID_SDK_ROOT/cmdline-tools/latest/bin
+export PATH="$HOME/.local/bin/flutter/bin:$PATH"
+export PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools/
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
+export PATH=$PATH:$ANDROID_ROOT/emulator
+export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
+export PATH=$JAVA_HOME/bin:$PATH 
+
+
+export PATH="$HOME/.bun/bin:$PATH"
+export PATH="$HOME/.ghcup/bin:$PATH"
+source $HOME/.ghcup/env
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$HOME/.spicetify:$PATH"
