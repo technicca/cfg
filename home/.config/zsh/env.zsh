@@ -16,7 +16,8 @@ export PATH=$PATH:$ANDROID_SDK_ROOT/tools/bin/
 export PATH=$PATH:$ANDROID_ROOT/emulator
 export PATH=$PATH:$ANDROID_SDK_ROOT/tools/
 export PATH=$JAVA_HOME/bin:$PATH 
-
+# nim
+export PATH=/home/t/.nimble/bin:$PATH
 
 export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"

@@ -14,9 +14,9 @@ add_newline = false
 c.disabled = true
 cmake.disabled = true
 haskell.disabled = true
-python.disabled = true
+python.disabled = false
 ruby.disabled = true
-rust.disabled = true
+rust.disabled = false
 perl.disabled = true
 package.disabled = true
 lua.disabled = true
@@ -47,22 +47,22 @@ style = "bg:none fg:base"
 # $all status$ahead_behind
 format = "[]($style)[$all_status$ahead_behind](bg:base fg:yellow)[ ]($style)"
 style = "bg:none fg:base"
-conflicted = "="
+conflicted = "!="
 ahead =	"⇡${count}"
-behind = "⇣${count}"
+behind = "⇣$Mod: {count}"
 diverged = "⇕⇡${ahead_count}⇣${behind_count}"
-up_to_date = ""
+up_to_date = "Up to date"
 untracked = "?${count}"
-stashed = ""
+stashed = "Stashed"
 modified = "!${count}"
 staged = "+${count}"
 renamed = "»${count}"
-deleted = "${count}"
+deleted = "X${count}"
 
 [cmd_duration]
 min_time = 1
 # duration & style 
-format = "[]($style)[[神](bg:base fg:flamingo bold)$duration](bg:base fg:text)[ ]($style)"
+format = "[]($style)[[](bg:base fg:flamingo bold)$duration](bg:base fg:text)[ ]($style)"
 disabled = false
 style = "bg:none fg:base"
 
