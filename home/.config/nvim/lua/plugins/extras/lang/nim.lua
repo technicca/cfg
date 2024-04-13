@@ -1,3 +1,25 @@
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "nim",
+  callback = function()
+    vim.bo.tabstop = 2
+    vim.bo.softtabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.expandtab = true
+
+    vim.lsp.start({
+      init_options = {},
+      name = "nim",
+      filetypes = { "nim" },
+      cmd = { "nimlangserver" },
+      root_dir = vim.fn.getcwd(),
+      single_file_support = true,
+      settings = {
+        nim = {},
+      },
+    })
+  end,
+})
+
 return {
   -- FIXME: Using latest version of nim-langserver
   -- included from nim itself
@@ -103,40 +125,5 @@ return {
         ["nim"] = { "nimpretty" },
       },
     },
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    config = function()
-      local none_ls = require("none-ls")
-
-      local nim_completion = {
-        method = none_ls.methods.COMPLETION,
-        filetypes = { "nim" },
-        generator = {
-          async = true,
-          fn = function(params, done)
-            vim.fn["nim#suggest#sug#GetAllCandidates"](function(start, candidates)
-              local CompletionItemKind = vim.lsp.protocol.CompletionItemKind
-              local kinds = {
-                d = CompletionItemKind.Keyword,
-                f = CompletionItemKind.Function,
-                t = CompletionItemKind.Struct,
-                v = CompletionItemKind.Variable,
-              }
-              local items = vim.tbl_map(function(candidate)
-                return {
-                  kind = kinds[candidate.kind] or CompletionItemKind.Text,
-                  label = candidate.word,
-                  documentation = candidate.info,
-                }
-              end, candidates)
-              done({ items = items })
-            end)
-          end,
-        },
-      }
-
-      none_ls.register(nim_completion)
-    end,
   },
 }

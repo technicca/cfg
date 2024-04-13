@@ -15,7 +15,6 @@ require("lazy").setup({
      { import = "plugins" },
      { import = "plugins.extras.lang.nim" },
      { import = "plugins.extras.lang.mojo" },
-     { import = "plugins.extras.lang.python" },
      { import = "plugins.extras.lang.rust" },
 
   },

@@ -45,7 +45,7 @@ return {
     -- includes catppuccin and tokyonight already
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = vim.env.NVIM_COLORSCHEME or "horizon",
+      colorscheme = vim.env.NVIM_COLORSCHEME or "oxocarbon",
     },
   },
   {
