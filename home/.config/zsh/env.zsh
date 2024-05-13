@@ -1,11 +1,18 @@
 ##
 ## PATH & ENV Var
 ##
-. /opt/asdf-vm/asdf.sh
 #pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init -)"
+
+# Opam and refinedc
+eval $(opam env)
+# [[ ! -r /home/t/.opam/opam-init/init.zsh ]] || source /home/t/.opam/opam-init/init.zsh  > /dev/null 2> /dev/null
+
+zz() {
+   __zoxide_z "$@" && exa --color=auto --icons
+}
 
 # flutter
 export ANDROID_SDK_ROOT='/opt/android-sdk'
@@ -19,8 +26,6 @@ export PATH=$JAVA_HOME/bin:$PATH
 # nim
 export PATH=/home/t/.nimble/bin:$PATH
 export LD_LIBRARY_PATH=/usr/local/lib
-# conda (python)
-source /opt/miniconda3/etc/profile.d/conda.sh
 
 export PATH="$HOME/.bun/bin:$PATH"
 export PATH="$HOME/.ghcup/bin:$PATH"

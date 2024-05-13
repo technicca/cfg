@@ -1,4 +1,13 @@
+local gleam = require("plugins.lang.gleam")
+
 local plugins = {
+  {
+    "nvimtools/none-ls.nvim",
+    ft = {"python"},
+    opts = function()
+      return require "custom.configs.null-ls"
+    end,
+  },
   {
     "rcarriga/nvim-dap-ui",
     dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"},
@@ -39,13 +48,6 @@ local plugins = {
   {
     "Exafunction/codeium.vim",
     event = 'BufEnter'
-  },
-  {
-    "nvimtools/none-ls.nvim",
-    ft = {"python"},
-    opts = function()
-      return require "custom.configs.null-ls"
-    end,
   },
   {
     "williamboman/mason.nvim",
@@ -101,7 +103,8 @@ local plugins = {
       table.insert(M.sources, {name = "crates"})
       return M
     end,
-  }
+  },
+  gleam
 }
 
 return plugins

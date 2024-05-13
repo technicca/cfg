@@ -1,25 +1,21 @@
--- bootstrap lazy.nvim, LazyVim and your plugins
-require("config.lazy")
+require "core"
 
-if vim.env.NVIM_TERMINAL ~= nil then
-  vim.api.nvim_create_autocmd("TermOpen", {
-    callback = function()
-      vim.cmd("startinsert")
-    end,
-  })
+local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
 
-  vim.api.nvim_create_autocmd("TermClose", {
-    callback = function()
-      vim.cmd("qa!")
-    end,
-  })
-
-  vim.cmd("terminal")
+if custom_init_path then
+  dofile(custom_init_path)
 end
 
-if vim.env.NVIM_FOCUS_MODE ~= nil then
-  -- done in a defer so we don't block ui that much...
-  vim.defer_fn(function()
-    require("utils").ui.enable_focus_mode()
-  end, 1000)
+require("core.utils").load_mappings()
+
+local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
+
+-- bootstrap lazy.nvim!
+if not vim.loop.fs_stat(lazypath) then
+  require("core.bootstrap").gen_chadrc_template()
+  require("core.bootstrap").lazy(lazypath)
 end
+
+dofile(vim.g.base46_cache .. "defaults")
+vim.opt.rtp:prepend(lazypath)
+require "plugins"
