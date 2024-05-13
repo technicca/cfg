@@ -105,13 +105,8 @@ else
     echo "GitHub email not set."
 fi
 
-echo "Do you want to set up NVchad? (Y/N)"
-read nvim_choice
-if [ "$nvim_choice" == "Y" ] || [ "nvim_choice" == "y" ]; then
-    git clone https://github.com/NvChad/NvChad ~/.config/nvim --depth 1 && nvim
-else
-    echo "NVchad no installed."
-fi
+# Maybe will need to disable systemd-networkd if already useing network manager:
+sudo systemctl disable systemd-networkd.service
 
 echo "done"
 

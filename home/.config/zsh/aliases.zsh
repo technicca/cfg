@@ -1,6 +1,7 @@
 ##
 ## Aliases
 ##
+alias btop='btop --utf-force'
 alias pysrc='source .venv/bin/activate'
 alias z='z && ls'
 alias mirrors='sudo reflector --verbose --country 'Russia,Estonia' -l 20 --sort rate --save /etc/pacman.d/mirrorlist'
