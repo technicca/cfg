@@ -1,9 +1,11 @@
 local gleam = require("plugins.lang.gleam")
+local nim = require("plugins.lang.nim")
+local go = require("plugins.lang.go")
 
 local plugins = {
   {
     "nvimtools/none-ls.nvim",
-    ft = {"python"},
+    ft = {"python", "go"},
     opts = function()
       return require "custom.configs.null-ls"
     end,
@@ -104,7 +106,9 @@ local plugins = {
       return M
     end,
   },
-  gleam
+  gleam,
+  nim,
+  go
 }
 
 return plugins
