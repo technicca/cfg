@@ -1,7 +1,0 @@
-plugin
-.luarc.json
-node_modules
-repro.lua
-.repro
-lazyvim.json
-lazy-lock.json
